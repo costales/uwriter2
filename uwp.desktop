@@ -1,5 +1,5 @@
 [Desktop Entry]
-_Name=Writer
+Name=Writer
 Comment=Text Editor
 Keywords=editor;text;offline;write;
 Exec=qmlscene --scaling %u qml/Main.qml
