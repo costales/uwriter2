@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <script src="libraries/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="libraries/jquery.min.js" referrerpolicy="origin"></script>
+	<link rel="stylesheet" type="text/css" href="css/uwp.css" />
+
+    <script>
+      tinymce.init({
+		selector: '#mytextarea',
+		height: '100%',
+		resize: false,
+		branding: false,
+		paste_as_text: true,
+		toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | outdent indent'
+      });
+    </script>
+  </head>
+
+  <body>
+    <form id="form" method="post">
+      <textarea id="mytextarea">Hello again! :^)</textarea>
+	</form>
+	
+	<script>
+		function top_margin(header) {
+//			$("html").css("padding-top", (parseInt(header)-1)+'px');
+		}
+		function qml_new() {
+			tinyMCE.activeEditor.setContent('');
+		}
+	</script>
+
+	<script>
+		var resizeWindowId;
+		$(window).resize(function() {
+			clearTimeout(resizeWindowId);
+			resizeWindowId = setTimeout(doneResizing, 500);
+		});
+		function doneResizing() {
+			window.location = 'http://settopmargin/';
+		}	
+	</script>
+
+  </body>
+</html>
