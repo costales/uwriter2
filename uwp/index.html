@@ -15,7 +15,11 @@
 		resize: false,
 		branding: false,
 		paste_as_text: true,
-		toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | outdent indent'
+		plugins: 'save',
+		toolbar: 'save | undo redo | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
+		save_enablewhendirty: true,
+		save_onsavecallback: function () { console.log('Saved'); },
+		save_oncancelcallback: function () { console.log('Save canceled'); }
       });
     </script>
   </head>
@@ -29,7 +33,7 @@
 		function top_margin(header) {
 //			$("html").css("padding-top", (parseInt(header)-1)+'px');
 		}
-		function qml_new() {
+		function file_new() {
 			tinyMCE.activeEditor.setContent('');
 		}
 	</script>

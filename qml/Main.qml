@@ -69,57 +69,6 @@ MainView {
                     backgroundColor: '#ffb84f'
                     dividerColor: UbuntuColors.slate
                 }
-                trailingActionBar {
-                    numberOfSlots: 5
-                    actions: [
-                        Action {
-                            id: actionSaveAs
-                            iconName: "save-as"
-                            enabled: pageMain.btnsEnabled
-                            text: i18n.tr("Save as")
-                            onTriggered: {
-                                mainPageStack.childPageOpened = true;
-                                pageMain.pageStack.addPageToNextColumn(pageMain, Qt.resolvedUrl("SaveAs.qml"), {"setNewDoc": false, "callLoadDoc": false, "mainFilename": mainPageStack.filename});
-                            }
-                        },
-                        Action {
-                            id: actionSave
-                            iconName: "save"
-                            shortcut: "Ctrl+S"
-                            enabled: pageMain.btnsEnabled
-                            text: i18n.tr("Save")
-                            onTriggered: {
-                                if (!mainPageStack.filename) {
-                                    mainPageStack.childPageOpened = true;
-                                    pageMain.pageStack.addPageToNextColumn(pageMain, Qt.resolvedUrl("SaveAs.qml"), {"setNewDoc": false, "callLoadDoc": false, "mainFilename": mainPageStack.filename});
-                                }
-                                else {
-                                    mainPageStack.executeJavaScript("qml_save_content(false)");
-                                }
-                            }
-                        },
-                        Action {
-                            id: actionLoad
-                            iconName: "document-open"
-                            shortcut: "Ctrl+O"
-                            enabled: pageMain.btnsEnabled
-                            text: i18n.tr("Load")
-                            onTriggered: {
-                                mainPageStack.executeJavaScript("qml_query_modified('load')");
-                            }
-                        },
-                        Action {
-                            id: actionNew
-                            iconName: "note"
-                            shortcut: "Ctrl+N"
-                            enabled: pageMain.btnsEnabled
-                            text: i18n.tr("New")
-                            onTriggered: {
-                                mainPageStack.executeJavaScript("qml_new()");
-                            }
-                        }
-                    ]
-                }
             }
 
 			WebEngineProfile {
