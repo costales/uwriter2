@@ -31,7 +31,10 @@
 	
 	<script>
 		function top_margin(header) {
-//			$("html").css("padding-top", (parseInt(header)-1)+'px');
+			$("html").css("padding-top", (parseInt(header)-1));
+			$('#wp_ifr').height(
+				$(window).height() - header
+			);
 		}
 		function file_new() {
 			tinyMCE.activeEditor.setContent('');
